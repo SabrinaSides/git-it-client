@@ -1,0 +1,30 @@
+.nav-bar {
+  width: 100%;
+  background-color: red;
+  padding: 0.5rem;
+}
+
+.nav-bar li {
+  list-style: none;
+  color: white;
+  padding-left: 5px;
+  font-size: 20px;
+}
+
+.icons {
+  display: flex;
+  flex-direction: row nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.icons p {
+  padding: 0 2.5rem;
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .nav-bar li {
+    font-size: 25px;
+  }
+}

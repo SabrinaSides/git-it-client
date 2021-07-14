@@ -1,27 +1,20 @@
 import React, { Component } from 'react';
+import '../styles/Navbar.css';
 
 class Navbar extends Component {
   render() {
     return (
-      <div>
-        <div>
-          <ul className='nav-bar'>
-            <li
-            // onClick={() => this.props.history.push('/')}
-            >
-              [Cart Symbol]
-            </li>
-            <li
-            // onClick={() => this.props.history.push('/reports')}
-            >
-              GitIt
-            </li>
-            <li>[Hamburger Menu]</li>
-          </ul>
+      <div className='nav-bar'>
+        <div className='icons'>
+          <div>[BurgerMenu]</div>
+          <p onClick={() => this.props.history.push('/shop')}>
+            <strong>Git It</strong>
+          </p>
+          <div onClick={() => this.props.history.push('/shopping-cart')}>[Cart]</div>
         </div>
-        <form>
-          <label for='product-search'>Search:</label>
-          <input type='text' id='product-search' name='product-search' />
+        <form className='icons'>
+          <label htmlFor='product-search'>[Search icon]:</label>
+          <input type='text' id='product-search' name='product-search' placeholder='Search'/>
           <br />
           <input type='submit' value='Submit' />
         </form>

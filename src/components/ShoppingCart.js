@@ -1,6 +1,10 @@
 import React, { Component } from 'react'
 
 class ShoppingCart extends Component {
+    state = {
+        productQuantity: 0
+    }
+
     render() {
         return (
             <div>
