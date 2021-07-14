@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
+import ShoppingContext from '../ShoppingContext';
 import '../styles/Navbar.css';
 
 class Navbar extends Component {
+  static contextType = ShoppingContext
+
   render() {
+    const {shoppingCart} = this.context;
+    let cartCount = shoppingCart.length
+
     return (
       <div className='nav-bar'>
         <div className='icons'>
@@ -10,7 +16,7 @@ class Navbar extends Component {
           <p onClick={() => this.props.history.push('/shop')}>
             <strong>Git It</strong>
           </p>
-          <div onClick={() => this.props.history.push('/shopping-cart')}>[Cart]</div>
+          <div onClick={() => this.props.history.push('/shopping-cart')}>[Cart]{cartCount}</div>
         </div>
         <form className='icons'>
           <label htmlFor='product-search'>[Search icon]:</label>

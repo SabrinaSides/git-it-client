@@ -2,7 +2,13 @@ import React, { Component } from 'react';
 import ShoppingContext from '../ShoppingContext';
 import '../styles/ProductPreview.css'
 class ProductPage extends Component {
+
   static contextType = ShoppingContext
+
+  handleAddToCart = (product) => {
+    this.context.addToCart(product)
+    // console.log('added')
+  }
 
   render() {
     const {products} = this.context
@@ -32,7 +38,7 @@ class ProductPage extends Component {
               <option value='x-large'>XL</option>
             </select>
           </form>
-          <button>Add to Cart</button>
+          <button onClick={event => this.handleAddToCart(chosenProduct)}>Add to Cart</button>
         </section>
 
         <section>

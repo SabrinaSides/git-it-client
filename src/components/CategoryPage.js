@@ -4,21 +4,11 @@ import ProductPreview from './ProductPreview'
 
 //categories: all, men's, women's
 class CategoryPage extends Component {
-  state = {
-    products: []
-  }
+  // state = {
+  //   chosenCategory: []
+  // }
 
   static contextType = ShoppingContext;
-
-  // static defaultProps = {
-  //   category: 'All'
-  // }
-
-  // componentDidMount(){
-  //   this.setState({
-  //     category: this.props.match.params.category
-  //   })
-  // }
 
   render() {
 
@@ -41,8 +31,8 @@ class CategoryPage extends Component {
         <h3>Shop The Products:</h3>
         {chosenCategory.map(product => {
         return (
-        <section onClick={() => this.props.history.push(`/shop/${product.category}/${product.title}`)}>
-          <ProductPreview product={product} key={product.title}/>
+        <section>
+          <ProductPreview product={product} key={product.title} history={this.props.history}/>
         </section>
         )
       })}

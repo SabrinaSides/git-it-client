@@ -12,7 +12,8 @@ import './App.css';
 
 class App extends Component {
   state = {
-    products: []
+    products: [],
+    shoppingCart: []
   }
 
   componentDidMount(){
@@ -21,10 +22,18 @@ class App extends Component {
     })
   }
 
+  addToCart = (product) => {
+    this.setState({
+      shoppingCart: [...this.state.shoppingCart, product]
+    })
+  }
+
   render(){
 
     const contextValue = {
-      products: this.state.products
+      products: this.state.products,
+      shoppingCart: this.state.shoppingCart,
+      addToCart: this.addToCart
     }
 
   return (
