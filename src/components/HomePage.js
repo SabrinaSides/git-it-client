@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 
 class HomePage extends Component {
+
   render() {
     return (
       <div>
-        <header>
+        <header className='banner'>
           <h1>Git It</h1>
           <h2>Find What Feels Like You</h2>
           <p>
@@ -14,7 +15,8 @@ class HomePage extends Component {
 
         <h3>Shop The Products:</h3>
         <section>
-          <h3 onClick={() => this.props.history.push('/shop/all')}>See all the t-shirts</h3>
+            {/*Need category to change in state on click */}
+          <h3 onClick={() => this.props.history.push('/shop/all') && this.handleCategory}>See all the t-shirts</h3>
           <p>
             [<em>placeholder for screenshot of coding tshirt</em>]
           </p>

@@ -1,0 +1,11 @@
+.product-preview-img {
+  height: auto;
+  width: 80%;
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .product-preview-img {
+    width: 60%;
+  }
+}

@@ -7,6 +7,7 @@ import CategoryPage from './components/CategoryPage'
 import ProductPage from './components/ProductPage'
 import ShoppingCart from './components/ShoppingCart'
 import Navbar from './components/Navbar';
+import dummyData from './dummy-data'
 import './App.css';
 
 class App extends Component {
@@ -15,6 +16,11 @@ class App extends Component {
     tShirts: [],
   }
 
+  componentDidMount(){
+    this.setState({
+      tShirts: dummyData
+    })
+  }
 
   render(){
 
