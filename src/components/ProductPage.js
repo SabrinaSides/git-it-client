@@ -4,34 +4,23 @@ import '../styles/ProductPreview.css'
 class ProductPage extends Component {
   static contextType = ShoppingContext
 
-  // state = {
-  //   tShirt: null
-  // }
-
-  // componentDidMount(){
-  //   const chosenTshirt = tShirts
-  //   console.log(tShirts)
-  // }
-
   render() {
-    const {tShirts} = this.context
+    const {products} = this.context
 
-    let chosenTshirt = tShirts.find(tShirt => {
-        return `/shop/tshirt/${tShirt.title}` == this.props.location.pathname
+    let chosenProduct = products.find(product => {
+        return `/shop/${product.category}/${product.title}` === this.props.location.pathname
     })
-
-    console.log(chosenTshirt)
 
     return (
       <div>
         <header>
-          <h1>{chosenTshirt.title}</h1>
-          <img src={chosenTshirt.img} alt={`${chosenTshirt.title}`} className='product-preview-img'/>
+          <h1>{chosenProduct.title}</h1>
+          <img src={chosenProduct.img} alt={`${chosenProduct.title}`} className='product-preview-img'/>
         </header>
 
         <section>
           <p>
-            {chosenTshirt.price}
+            {chosenProduct.price}
           </p>
           <form>
             <label htmlFor='size'>Size:</label>
@@ -48,7 +37,7 @@ class ProductPage extends Component {
 
         <section>
           <p><strong>Product Info:</strong></p>
-            <p>{chosenTshirt.productInfo}</p>
+            <p>{chosenProduct.productInfo}</p>
           </section>
 
         <section>

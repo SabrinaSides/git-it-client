@@ -4,9 +4,9 @@ import ProductPreview from './ProductPreview'
 
 //categories: all, men's, women's
 class CategoryPage extends Component {
-  // state = {
-  //   category: ''
-  // }
+  state = {
+    products: []
+  }
 
   static contextType = ShoppingContext;
 
@@ -22,23 +22,27 @@ class CategoryPage extends Component {
 
   render() {
 
-    const {tShirts} = this.context
+    const {products} = this.context
+
+    const chosenCategory = products.filter( product => {
+      return `/shop/${product.category}` === this.props.location.pathname
+    })
 
     return (
       <div>
         <header>
           <h1>Git It</h1>
-          <h2>All T-shirts</h2>
+          <h2>{chosenCategory.category}</h2>
           <p>
             [<em>Tshirt pic in background</em>]
           </p>
         </header>
 
         <h3>Shop The Products:</h3>
-        {tShirts.map(tShirt => {
+        {chosenCategory.map(product => {
         return (
-        <section onClick={() => this.props.history.push(`/shop/${tShirt.category}/${tShirt.title}`)}>
-          <ProductPreview tShirt={tShirt} key={tShirt.title}/>
+        <section onClick={() => this.props.history.push(`/shop/${product.category}/${product.title}`)}>
+          <ProductPreview product={product} key={product.title}/>
         </section>
         )
       })}

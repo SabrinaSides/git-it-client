@@ -1,12 +1,12 @@
 import React from 'react'
 import '../styles/ProductPreview.css'
 
-function ProductPreview({tShirt}) {
+function ProductPreview({product}) {
     return (
             <div>
-          <img src={tShirt.img} alt={`${tShirt.title} tshirt`} className='product-preview-img' />
-          <p>{tShirt.title}</p>
-          <p>{tShirt.price}</p>
+          <img src={product.img} alt={`${product.title} product`} className='product-preview-img' />
+          <p>{product.title}</p>
+          <p>{product.price}</p>
             </div>
     )
 }

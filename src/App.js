@@ -12,21 +12,19 @@ import './App.css';
 
 class App extends Component {
   state = {
-    category: 'All',
-    tShirts: [],
+    products: []
   }
 
   componentDidMount(){
     this.setState({
-      tShirts: dummyData
+      products: dummyData
     })
   }
 
   render(){
 
     const contextValue = {
-      category: this.state.category,
-      tShirts: this.state.tShirts
+      products: this.state.products
     }
 
   return (

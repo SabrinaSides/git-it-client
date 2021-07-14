@@ -16,28 +16,28 @@ class HomePage extends Component {
         <h3>Shop The Products:</h3>
         <section>
             {/*Need category to change in state on click */}
-          <h3 onClick={() => this.props.history.push('/shop/all') && this.handleCategory}>See all the t-shirts</h3>
+          <h3 onClick={() => this.props.history.push('/shop/tshirts')}>Shop T-Shirts</h3>
           <p>
             [<em>placeholder for screenshot of coding tshirt</em>]
           </p>
         </section>
 
         <section>
-          <h3 onClick={() => this.props.history.push('/shop/men')}>See Men's t-shirts</h3>
+          <h3 onClick={() => this.props.history.push('/shop/mugs')}>Shop Mugs</h3>
           <p>
-            [<em>placeholder for screenshot of coding tshirt</em>]
+            [<em>placeholder for screenshot of coding mug</em>]
           </p>
         </section>
 
         <section>
-          <h3 onClick={() => this.props.history.push('/shop/women')}>See Women's t-shirts</h3>
+          <h3 onClick={() => this.props.history.push('/shop/stickers')}>Shop Stickers?</h3>
           <p>
-            [<em>placeholder for screenshot of coding tshirt</em>]
+            [<em>placeholder for screenshot of coding sticker</em>]
           </p>
         </section>
 
         <section>
-          About our Shirts: - icons with info on material - puns hand chosen by
+          About our Products: - icons with info on material - puns hand chosen by
           programmers - socially responsible production
         </section>
       </div>

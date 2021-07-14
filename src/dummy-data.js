@@ -6,7 +6,7 @@ import react from './images/react.jpg'
 export default [
     {
         title: 'Java',
-        category: 'tshirt',
+        category: 'tshirts',
         price: '$9.99',
         searchTerms: ['java', 'coffee'],
         img: java,
@@ -15,7 +15,7 @@ export default [
 
     {
         title: 'Python',
-        category: 'tshirt',
+        category: 'tshirts',
         price: '$9.99',
         searchTerms: ['python', 'snake'],
         img: python,
@@ -24,7 +24,7 @@ export default [
 
     {
         title: 'JavaScript',
-        category: 'tshirt',
+        category: 'tshirts',
         price: '$9.99',
         searchTerms: ['javascript', 'js'],
         img: javascript,
@@ -33,7 +33,7 @@ export default [
 
     {
         title: 'React',
-        category: 'tshirt',
+        category: 'tshirts',
         price: '$9.99',
         searchTerms: ['react', 'hello world'],
         img: react,
