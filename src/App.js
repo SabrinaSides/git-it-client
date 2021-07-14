@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import { Route, Switch } from 'react-router-dom';
+import ShoppingContext from './ShoppingContext';
 import LandingPage from './components/LandingPage'
 import HomePage from './components/HomePage'
 import CategoryPage from './components/CategoryPage'
@@ -10,12 +11,20 @@ import './App.css';
 
 class App extends Component {
   state = {
-    tShirts: []
+    category: 'All',
+    tShirts: [],
   }
 
 
   render(){
+
+    const contextValue = {
+      category: this.state.category,
+      tShirts: this.state.tShirts
+    }
+
   return (
+    <ShoppingContext.Provider value={contextValue}>
     <div className="App">
       <nav>
       <Route path='/shop' component={Navbar} />
@@ -31,6 +40,7 @@ class App extends Component {
         </Switch>
       </main>
     </div>
+    </ShoppingContext.Provider>
   )
   }
 }

@@ -14,21 +14,21 @@ class HomePage extends Component {
 
         <h3>Shop The Products:</h3>
         <section>
-          See all the t-shirts
+          <h3 onClick={() => this.props.history.push('/shop/all')}>See all the t-shirts</h3>
           <p>
             [<em>placeholder for screenshot of coding tshirt</em>]
           </p>
         </section>
 
         <section>
-          See Men's t-shirts
+          <h3 onClick={() => this.props.history.push('/shop/men')}>See Men's t-shirts</h3>
           <p>
             [<em>placeholder for screenshot of coding tshirt</em>]
           </p>
         </section>
 
         <section>
-          See Women's t-shirts
+          <h3 onClick={() => this.props.history.push('/shop/women')}>See Women's t-shirts</h3>
           <p>
             [<em>placeholder for screenshot of coding tshirt</em>]
           </p>
