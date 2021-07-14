@@ -1,22 +1,40 @@
 import React, { Component } from 'react';
-
+import ShoppingContext from '../ShoppingContext';
+import '../styles/ProductPreview.css'
 class ProductPage extends Component {
+  static contextType = ShoppingContext
+
+  // state = {
+  //   tShirt: null
+  // }
+
+  // componentDidMount(){
+  //   const chosenTshirt = tShirts
+  //   console.log(tShirts)
+  // }
+
   render() {
+    const {tShirts} = this.context
+
+    let chosenTshirt = tShirts.find(tShirt => {
+        return `/shop/tshirt/${tShirt.title}` == this.props.location.pathname
+    })
+
+    console.log(chosenTshirt)
+
     return (
       <div>
         <header>
-          <h1>Tshirt Product Name</h1>
-          <p>
-            [<em>placeholder for screenshot of tshirt</em>]
-          </p>
+          <h1>{chosenTshirt.title}</h1>
+          <img src={chosenTshirt.img} alt={`${chosenTshirt.title}`} className='product-preview-img'/>
         </header>
 
         <section>
           <p>
-            [<em>Price</em>]
+            {chosenTshirt.price}
           </p>
           <form>
-            <label for='size'>Size:</label>
+            <label htmlFor='size'>Size:</label>
             <select id='size' name='size'>
               <option value='x-small'>XS</option>
               <option value='small'>S</option>
@@ -28,11 +46,16 @@ class ProductPage extends Component {
           <button>Add to Cart</button>
         </section>
 
-        <section>Product Info:</section>
+        <section>
+          <p><strong>Product Info:</strong></p>
+            <p>{chosenTshirt.productInfo}</p>
+          </section>
 
-        <section>Reviews:</section>
+        <section>
+        <p><strong>Reviews:</strong></p>
+        </section>
       </div>
-    );
+    )
   }
 }
 

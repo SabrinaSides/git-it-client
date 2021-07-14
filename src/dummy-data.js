@@ -6,34 +6,38 @@ import react from './images/react.jpg'
 export default [
     {
         title: 'Java',
-        category: ['All', `Men's`],
+        category: 'tshirt',
         price: '$9.99',
         searchTerms: ['java', 'coffee'],
-        img: java
+        img: java,
+        productInfo: 'A great Java-themed shirt'
     },
 
     {
         title: 'Python',
-        category: ['All', `Women's`],
+        category: 'tshirt',
         price: '$9.99',
         searchTerms: ['python', 'snake'],
-        img: python
+        img: python,
+        productInfo: 'A great Python-themed shirt'
     },
 
     {
         title: 'JavaScript',
-        category: ['All', `Women's`],
+        category: 'tshirt',
         price: '$9.99',
         searchTerms: ['javascript', 'js'],
-        img: javascript
+        img: javascript,
+        productInfo: 'A great JavaScript-themed shirt'
     },
 
     {
         title: 'React',
-        category: ['All', `Women's`],
+        category: 'tshirt',
         price: '$9.99',
         searchTerms: ['react', 'hello world'],
-        img: react
+        img: react,
+        productInfo: 'A great React-themed shirt'
     }
 
 ]

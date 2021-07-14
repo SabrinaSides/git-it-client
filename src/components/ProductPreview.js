@@ -4,7 +4,7 @@ import '../styles/ProductPreview.css'
 function ProductPreview({tShirt}) {
     return (
             <div>
-          <img src={tShirt.img} alt={`${tShirt.title} tshirt`} className='product-preview-img'/>
+          <img src={tShirt.img} alt={`${tShirt.title} tshirt`} className='product-preview-img' />
           <p>{tShirt.title}</p>
           <p>{tShirt.price}</p>
             </div>
