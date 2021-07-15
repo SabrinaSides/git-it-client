@@ -1,0 +1,13 @@
+.cart-img {
+  height: auto;
+  width: 60%;
+}
+
+.cart-item {
+  display: flex;
+  flex: row nowrap;
+}
+
+.cart-details {
+  display: inline;
+}

@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import ShoppingContext from '../ShoppingContext';
 import '../styles/ProductPreview.css'
 class ProductPage extends Component {
+  state = {
+    chosenProduct: []
+  }
 
   static contextType = ShoppingContext
 
@@ -16,6 +19,7 @@ class ProductPage extends Component {
     let chosenProduct = products.find(product => {
         return `/shop/${product.category}/${product.title}` === this.props.location.pathname
     })
+
 
     return (
       <div>
