@@ -3,5 +3,6 @@ import React from 'react';
 export default React.createContext({
     products: [],
     shoppingCart: [],
-    addToCart: () => {}
+    addToCart: () => {},
+    removeFromCart: () => {}
 })

@@ -31,9 +31,7 @@ class CategoryPage extends Component {
         <h3>Shop The Products:</h3>
         {chosenCategory.map(product => {
         return (
-        <section>
           <ProductPreview product={product} key={product.title} history={this.props.history}/>
-        </section>
         )
       })}
       </div>

@@ -3,7 +3,7 @@ import python from './images/python.jpg'
 import javascript from './images/javascript.jpg'
 import react from './images/react.jpg'
 
-export default [
+const dummyData = [
     {
         title: 'Java',
         category: 'tshirts',
@@ -41,3 +41,5 @@ export default [
     }
 
 ]
+
+export default dummyData;

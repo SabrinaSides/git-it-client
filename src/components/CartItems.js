@@ -1,7 +1,16 @@
 import React, { Component } from 'react';
 import '../styles/CartItems.css';
+import ShoppingContext from '../ShoppingContext';
 
 class CartItems extends Component {
+    static contextType = ShoppingContext
+
+
+    handleRemoveFromCart = (product) => {
+        this.context.removeFromCart(product)
+        console.log('removed')
+      }
+
   render() {
     const { cartItem } = this.props;
     return (
@@ -16,7 +25,7 @@ class CartItems extends Component {
         <div className='cart-details'>
           <p><strong>{cartItem.title}</strong></p>
           <p>Size, color</p>
-          <input type='button' value='-' className='minus' />
+          <input type='button' value='-'/>
           <input
             type='number'
             step='1'
@@ -27,11 +36,11 @@ class CartItems extends Component {
             className=''
             size='4'
             pattern=''
-            inputmode=''
+            inputMode=''
           />
-          <input type='button' value='+' className='plus' />
+          <input type='button' value='+'/>
           <p>Price: {cartItem.price}</p>
-          <button>Remove</button>
+          <button onClick={event => this.handleRemoveFromCart(cartItem.title)}>Remove</button>
         </div>
       </section>
     );

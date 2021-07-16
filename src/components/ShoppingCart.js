@@ -18,7 +18,7 @@ class ShoppingCart extends Component {
         <h1>Your Shopping Cart</h1>
       </header>
       {shoppingCart.map(cartItem => {
-         return <CartItems cartItem={cartItem}/>
+         return <CartItems key={cartItem.title} cartItem={cartItem}/>
         })}
       <section>
         <p>Subtotal: $0.00</p>

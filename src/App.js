@@ -28,12 +28,21 @@ class App extends Component {
     })
   }
 
+  removeFromCart = (product) => {
+    this.setState({
+      shoppingCart: [this.state.shoppingCart.filter(cartItem => {
+        return cartItem.title !== product
+      })]
+    })
+  }
+
   render(){
 
     const contextValue = {
       products: this.state.products,
       shoppingCart: this.state.shoppingCart,
-      addToCart: this.addToCart
+      addToCart: this.addToCart,
+      removeFromCart: this.removeFromCart
     }
 
   return (

@@ -20,6 +20,7 @@ class ProductPage extends Component {
         return `/shop/${product.category}/${product.title}` === this.props.location.pathname
     })
 
+    // let productToCart = ..... chosenProduct + size
 
     return (
       <div>
