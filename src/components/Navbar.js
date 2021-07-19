@@ -12,11 +12,11 @@ class Navbar extends Component {
     return (
       <div className='nav-bar'>
         <div className='icons'>
-          <div>[BurgerMenu]</div>
+          {/* <div>[BurgerMenu]</div> */}
           <p onClick={() => this.props.history.push('/shop')}>
             <strong>Git It</strong>
           </p>
-          <div onClick={() => this.props.history.push('/shopping-cart')}>[Cart]{cartCount}</div>
+          <div onClick={() => this.props.history.push('/shopping-cart')}>Cart[{cartCount}]</div>
         </div>
         <form className='icons'>
           <label htmlFor='product-search'>[Search icon]:</label>

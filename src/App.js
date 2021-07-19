@@ -28,11 +28,11 @@ class App extends Component {
     })
   }
 
-  removeFromCart = (product) => {
+  removeFromCart = (cartItemId) => {
     this.setState({
-      shoppingCart: [this.state.shoppingCart.filter(cartItem => {
-        return cartItem.title !== product
-      })]
+      shoppingCart: this.state.shoppingCart.filter(cartItem => {
+        return cartItem.cartItemId !== cartItemId
+      })
     })
   }
 

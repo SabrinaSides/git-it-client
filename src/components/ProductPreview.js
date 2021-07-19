@@ -10,7 +10,7 @@ class ProductPreview extends Component {
             <div onClick={() => this.props.history.push(`/shop/${product.category}/${product.title}`)}>
           <img src={product.img} alt={`${product.title} product`} className='product-preview-img' />
           <p>{product.title}</p>
-          <p>{product.price}</p>
+          <p>${product.price}</p>
             </div>
     )
   }

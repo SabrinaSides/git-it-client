@@ -6,9 +6,8 @@ class CartItems extends Component {
     static contextType = ShoppingContext
 
 
-    handleRemoveFromCart = (product) => {
-        this.context.removeFromCart(product)
-        console.log('removed')
+    handleRemoveFromCart = (cartItemId) => {
+        this.context.removeFromCart(cartItemId)
       }
 
   render() {
@@ -24,8 +23,8 @@ class CartItems extends Component {
         </div>
         <div className='cart-details'>
           <p><strong>{cartItem.title}</strong></p>
-          <p>Size, color</p>
-          <input type='button' value='-'/>
+          <p>Size: {cartItem.size}</p>
+          {/* <input type='button' value='-'/>
           <input
             type='number'
             step='1'
@@ -38,9 +37,9 @@ class CartItems extends Component {
             pattern=''
             inputMode=''
           />
-          <input type='button' value='+'/>
-          <p>Price: {cartItem.price}</p>
-          <button onClick={event => this.handleRemoveFromCart(cartItem.title)}>Remove</button>
+          <input type='button' value='+'/> */}
+          <p>Price: ${cartItem.price}</p>
+          <button onClick={event => this.handleRemoveFromCart(cartItem.cartItemId)}>Remove</button>
         </div>
       </section>
     );
