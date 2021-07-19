@@ -1,13 +1,16 @@
 .cart-img {
   height: auto;
-  width: 60%;
+  width: 200px;
+  margin: 2% 0;
 }
 
 .cart-item {
   display: flex;
   flex: row nowrap;
+  flex-basis: 1 2;
 }
 
 .cart-details {
   display: inline;
+  margin: 2% 5%;
 }

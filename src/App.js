@@ -7,6 +7,7 @@ import CategoryPage from './components/CategoryPage'
 import ProductPage from './components/ProductPage'
 import ShoppingCart from './components/ShoppingCart'
 import Navbar from './components/Navbar';
+import Checkout from './components/Checkout';
 import dummyData from './dummy-data'
 import './App.css';
 
@@ -58,6 +59,7 @@ class App extends Component {
         <Route path='/shop/:category/:product' component={ProductPage} />
         <Route path='/shop/:category' component={CategoryPage} />
         <Route path='/shop' component={HomePage} />
+        <Route path='/shopping-cart/checkout' component={Checkout} />
         <Route path='/shopping-cart' component={ShoppingCart} />
         </Switch>
       </main>
