@@ -30,13 +30,6 @@ class HomePage extends Component {
         </section>
 
         <section>
-          <h3 onClick={() => this.props.history.push('/shop/stickers')}>Shop Stickers?</h3>
-          <p>
-            [<em>placeholder for screenshot of coding sticker</em>]
-          </p>
-        </section>
-
-        <section>
           About our Products: - icons with info on material - puns hand chosen by
           programmers - socially responsible production
         </section>

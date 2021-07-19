@@ -35,17 +35,17 @@ class ProductPage extends Component {
   }
 
   handleAddToCart = () => {
-    let product = this.state
-    console.log(product)
+    let product = this.state;
+    console.log(product);
     this.context.addToCart(product);
     //new cartId for every item added
     this.setState({
-      cartItemId: uuidv4()
-    })
+      cartItemId: uuidv4(),
+    });
   };
 
   render() {
-    const { title, price, img, productInfo} = this.state;
+    const { title, price, img, productInfo } = this.state;
 
     return (
       <div>
@@ -56,18 +56,20 @@ class ProductPage extends Component {
 
         <section>
           <p>${price}</p>
-          <form
-            onChange={(event) => this.setState({ size: event.target.value })}
-          >
-            <label htmlFor='size'>Size:</label>
-            <select id='size' name='size'>
-              <option value='x-small'>XS</option>
-              <option value='small'>S</option>
-              <option value='medium'>M</option>
-              <option value='large'>L</option>
-              <option value='x-large'>XL</option>
-            </select>
-          </form>
+          {this.state.category === 'tshirts' && (
+            <form
+              onChange={(event) => this.setState({ size: event.target.value })}
+            >
+              <label htmlFor='size'>Size:</label>
+              <select id='size' name='size'>
+                <option value='x-small'>XS</option>
+                <option value='small'>S</option>
+                <option value='medium'>M</option>
+                <option value='large'>L</option>
+                <option value='x-large'>XL</option>
+              </select>
+            </form>
+          )}
           <button onClick={(event) => this.handleAddToCart()}>
             Add to Cart
           </button>
@@ -78,12 +80,6 @@ class ProductPage extends Component {
             <strong>Product Info:</strong>
           </p>
           <p>{productInfo}</p>
-        </section>
-
-        <section>
-          <p>
-            <strong>Reviews:</strong>
-          </p>
         </section>
       </div>
     );
