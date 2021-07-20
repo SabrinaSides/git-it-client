@@ -8,86 +8,94 @@ import Checkbox from '@material-ui/core/Checkbox';
 function AddressForm() {
   return (
     <div>
-      <Typography variant="h6" gutterBottom>
+      <Typography variant='h6' gutterBottom>
         Shipping address
       </Typography>
       <Grid container spacing={3}>
         <Grid item xs={12} sm={6}>
           <TextField
             required
-            id="firstName"
-            name="firstName"
-            label="First name"
+            id='firstName'
+            name='firstName'
+            label='First name:'
             fullWidth
-            autoComplete="given-name"
+            value='John'
           />
         </Grid>
         <Grid item xs={12} sm={6}>
           <TextField
             required
-            id="lastName"
-            name="lastName"
-            label="Last name"
+            id='lastName'
+            name='lastName'
+            label='Last name:'
             fullWidth
-            autoComplete="family-name"
+            value='Smith'
           />
         </Grid>
         <Grid item xs={12}>
           <TextField
             required
-            id="address1"
-            name="address1"
-            label="Address line 1"
+            id='address1'
+            name='address1'
+            label='Address line 1:'
             fullWidth
-            autoComplete="shipping address-line1"
+            value='123 JavaScript St'
           />
         </Grid>
         <Grid item xs={12}>
           <TextField
-            id="address2"
-            name="address2"
-            label="Address line 2"
+            id='address2'
+            name='address2'
+            label='Address line 2:'
             fullWidth
-            autoComplete="shipping address-line2"
+            value=' '
           />
         </Grid>
         <Grid item xs={12} sm={6}>
           <TextField
             required
-            id="city"
-            name="city"
-            label="City"
+            id='city'
+            name='city'
+            label='City'
             fullWidth
-            autoComplete="shipping address-level2"
+            value='Oklahoma City'
           />
         </Grid>
         <Grid item xs={12} sm={6}>
-          <TextField id="state" name="state" label="State/Province/Region" fullWidth />
-        </Grid>
-        <Grid item xs={12} sm={6}>
           <TextField
-            required
-            id="zip"
-            name="zip"
-            label="Zip / Postal code"
+            id='state'
+            name='state'
+            label='State/Province/Region'
             fullWidth
-            autoComplete="shipping postal-code"
+            value='OK'
           />
         </Grid>
         <Grid item xs={12} sm={6}>
           <TextField
             required
-            id="country"
-            name="country"
-            label="Country"
+            id='zip'
+            name='zip'
+            label='Zip / Postal code'
             fullWidth
-            autoComplete="shipping country"
+            value='12345'
+          />
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <TextField
+            required
+            id='country'
+            name='country'
+            label='Country'
+            fullWidth
+            value='USA'
           />
         </Grid>
         <Grid item xs={12}>
           <FormControlLabel
-            control={<Checkbox color="secondary" name="saveAddress" value="yes" />}
-            label="Use this address for payment details"
+            control={
+              <Checkbox color='secondary' name='saveAddress' value='yes' />
+            }
+            label='Use this address for payment details'
           />
         </Grid>
       </Grid>

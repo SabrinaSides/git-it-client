@@ -83,6 +83,7 @@ export default function Checkout() {
           <Typography component="h1" variant="h4" align="center">
             Checkout
           </Typography>
+          <p>All info prefilled for demo</p>
           <Stepper activeStep={activeStep} className={classes.stepper}>
             {steps.map((label) => (
               <Step key={label}>

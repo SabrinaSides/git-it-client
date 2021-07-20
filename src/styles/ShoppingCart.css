@@ -2,3 +2,10 @@
   border: solid thin;
   margin: 2%;
 }
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .cart-items-container {
+    margin: 2% 10%;
+  }
+}

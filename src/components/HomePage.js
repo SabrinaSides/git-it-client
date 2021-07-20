@@ -1,38 +1,35 @@
 import React, { Component } from 'react';
+import tShirts from '../images/tshirt-stock.png';
+import mug from '../images/mug-stock.png';
 
 class HomePage extends Component {
-
   render() {
     return (
       <div>
         <header className='banner'>
           <h1>Git It</h1>
-          <h2>Find What Feels Like You</h2>
-          <p>
-            [<em>Tshirt pic in background</em>]
-          </p>
+          <h2>A Programmer's Shopping Paradise</h2>
         </header>
 
         <h3>Shop The Products:</h3>
-        <section>
-            {/*Need category to change in state on click */}
-          <h3 onClick={() => this.props.history.push('/shop/tshirts')}>Shop T-Shirts</h3>
-          <p>
-            [<em>placeholder for screenshot of coding tshirt</em>]
-          </p>
+        <section onClick={() => this.props.history.push('/shop/tshirts')}>
+          <h3>Shop T-Shirts</h3>
+          <img src={tShirts} alt='Rack of tshirts' className='home-img' />
         </section>
 
-        <section>
-          <h3 onClick={() => this.props.history.push('/shop/mugs')}>Shop Mugs</h3>
-          <p>
-            [<em>placeholder for screenshot of coding mug</em>]
-          </p>
+        <section onClick={() => this.props.history.push('/shop/mugs')}>
+          <h3>Shop Mugs</h3>
+          <img src={mug} alt='Coding-themed mug' className='home-img' />
         </section>
 
-        <section>
-          About our Products: - icons with info on material - puns hand chosen by
-          programmers - socially responsible production
-        </section>
+        {/* <section>
+          <h3>About our Products:</h3>
+          <ul>
+            <li>icons with info on material</li>
+            <li>puns hand chosen by programmers</li>
+            <li>socially responsible production</li>
+          </ul>
+        </section> */}
       </div>
     );
   }

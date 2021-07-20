@@ -1,24 +1,18 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
 import Grid from '@material-ui/core/Grid';
+import ShoppingContext from '../ShoppingContext'
+import '../styles/CartItems.css'
+import CartItems from './CartItems'
 
-const products = [
-  { name: 'Product 1', desc: 'A nice thing', price: '$9.99' },
-  { name: 'Product 2', desc: 'Another thing', price: '$3.45' },
-  { name: 'Product 3', desc: 'Something else', price: '$6.51' },
-  { name: 'Product 4', desc: 'Best thing of all', price: '$14.11' },
-  { name: 'Shipping', desc: '', price: 'Free' },
-];
-const addresses = ['1 Material-UI Drive', 'Reactville', 'Anytown', '99999', 'USA'];
+
+const addresses = ['123 JavaScript St', 'Oklahoma City', 'OK', '12345', 'USA'];
 const payments = [
   { name: 'Card type', detail: 'Visa' },
-  { name: 'Card holder', detail: 'Mr John Smith' },
+  { name: 'Card holder', detail: 'John Smith' },
   { name: 'Card number', detail: 'xxxx-xxxx-xxxx-1234' },
-  { name: 'Expiry date', detail: '04/2024' },
+  { name: 'Expiry date', detail: '10/2024' },
 ];
 
 const useStyles = makeStyles((theme) => ({
@@ -33,38 +27,59 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Review() {
-  const classes = useStyles();
+export default class Review extends React.Component {
+    static contextType = ShoppingContext
+
+    calculateSubtotal = () => {
+        const shoppingCart = this.context.shoppingCart
+        let subtotal = 0
+        shoppingCart.forEach(cartItem => {
+          subtotal += cartItem.price
+        })
+        return subtotal.toFixed(2)
+      }
+  
+      calculateSalesTax = () => {
+        let subtotal = this.calculateSubtotal()
+        return (subtotal * 0.045).toFixed(2)
+      }
+  
+      calculateTotal = () => {
+        let subtotal = this.calculateSubtotal()
+        let salesTax = this.calculateSalesTax()
+        let total = parseFloat(subtotal) + parseFloat(salesTax)
+        return parseFloat(total).toFixed(2)
+      }
+  
+  render(){
+    const {shoppingCart} = this.context;
 
   return (
     <React.Fragment>
       <Typography variant="h6" gutterBottom>
         Order summary
       </Typography>
-      <List disablePadding>
-        {products.map((product) => (
-          <ListItem className={classes.listItem} key={product.name}>
-            <ListItemText primary={product.name} secondary={product.desc} />
-            <Typography variant="body2">{product.price}</Typography>
-          </ListItem>
-        ))}
-        <ListItem className={classes.listItem}>
-          <ListItemText primary="Total" />
-          <Typography variant="subtitle1" className={classes.total}>
-            $34.06
-          </Typography>
-        </ListItem>
-      </List>
+      <div className='cart-items-container'>
+      {shoppingCart.map((cartItem, idx) => {
+         return <CartItems key={idx} cartItem={cartItem} pathname={'/shopping-cart/checkout'}/>
+        })}
+        </div>
+      <section>
+        <p>Subtotal: ${this.calculateSubtotal()}</p>
+        <p>Shipping: FREE</p>
+        <p>Taxes: ${this.calculateSalesTax()}</p>
+        <p>Total: ${this.calculateTotal()} </p>
+    </section>
       <Grid container spacing={2}>
         <Grid item xs={12} sm={6}>
-          <Typography variant="h6" gutterBottom className={classes.title}>
+          <Typography variant="h6" gutterBottom className={useStyles.title}>
             Shipping
           </Typography>
           <Typography gutterBottom>John Smith</Typography>
           <Typography gutterBottom>{addresses.join(', ')}</Typography>
         </Grid>
         <Grid item container direction="column" xs={12} sm={6}>
-          <Typography variant="h6" gutterBottom className={classes.title}>
+          <Typography variant="h6" gutterBottom className={useStyles.title}>
             Payment details
           </Typography>
           <Grid container>
@@ -82,5 +97,6 @@ export default function Review() {
         </Grid>
       </Grid>
     </React.Fragment>
-  );
+  )
+            }
 }

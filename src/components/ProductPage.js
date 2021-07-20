@@ -48,13 +48,14 @@ class ProductPage extends Component {
     const { title, price, img, productInfo } = this.state;
 
     return (
-      <div>
-        <header>
+      <div>      
+        <header className='banner'>
           <h1>{title}</h1>
-          <img src={img} alt={`${title}`} className='product-preview-img' />
         </header>
-
+        <button className='back-btn' onClick={() => this.props.history.goBack()}>Back</button>
+        
         <section>
+        <img src={img} alt={`${title}`} className='product-preview-img' />
           <p>${price}</p>
           {this.state.category === 'tshirts' && (
             <form

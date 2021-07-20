@@ -39,7 +39,8 @@ class CartItems extends Component {
           />
           <input type='button' value='+'/> */}
           <p>Price: ${cartItem.price}</p>
-          <button onClick={event => this.handleRemoveFromCart(cartItem.cartItemId)}>Remove</button>
+          {this.props.pathname === '/shopping-cart/checkout' ? <div></div> :
+          <button onClick={event => this.handleRemoveFromCart(cartItem.cartItemId)}>Remove</button>}
         </div>
       </section>
     );

@@ -10,13 +10,13 @@ class Navbar extends Component {
     let cartCount = shoppingCart.length;
 
     return (
-      <div className='nav-bar'>
-        <div className='icons'>
+      <div className='navbar'>
+        <div className='navbar-content'>
           {/* <div>[BurgerMenu]</div> */}
-          <h2 onClick={() => this.props.history.push('/shop')}>Git It</h2>
-          <div onClick={() => this.props.history.push('/shopping-cart')}>
+          <div><h2 onClick={() => this.props.history.push('/shop')}>Git It</h2></div>
+          {this.props.location.pathname !== '/shopping-cart/checkout' ? <div onClick={() => this.props.history.push('/shopping-cart')}>
             Cart[{cartCount}]
-          </div>
+          </div> : <></>}
         </div>
         {/* <form className='icons'>
           <label htmlFor='product-search'>[Search icon]:</label>
