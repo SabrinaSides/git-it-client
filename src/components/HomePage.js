@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import tShirts from '../images/tshirt-stock.png';
 import mug from '../images/mug-stock.png';
 
+
 class HomePage extends Component {
+
   render() {
     return (
       <div>

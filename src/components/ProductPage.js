@@ -2,13 +2,15 @@ import React, { Component } from 'react';
 import ShoppingContext from '../ShoppingContext';
 import { v4 as uuidv4 } from 'uuid';
 import '../styles/ProductPreview.css';
+
+
 class ProductPage extends Component {
   state = {
     cartItemId: uuidv4(),
     productname: '',
     category: '',
     price: '',
-    //img: null,
+    img: '',
     productInfo: '',
     size: 'x-small',
   };
@@ -32,8 +34,8 @@ class ProductPage extends Component {
       productname: chosenProduct.productname,
       category: chosenProduct.category,
       price: chosenProduct.price,
-      //img: chosenProduct.img,
-      productInfo: chosenProduct.productInfo,
+      img: chosenProduct.img,
+      productinfo: chosenProduct.productinfo,
     });
   }
 
@@ -47,7 +49,7 @@ class ProductPage extends Component {
   };
 
   render() {
-    const { productname, price, img, productInfo } = this.state;
+    const { productname, price, img, productinfo } = this.state;
 
     return (
       <div>      
@@ -65,11 +67,11 @@ class ProductPage extends Component {
             >
               <label htmlFor='size'>Size:</label>
               <select id='size' name='size'>
-                <option value='x-small'>XS</option>
-                <option value='small'>S</option>
-                <option value='medium'>M</option>
-                <option value='large'>L</option>
-                <option value='x-large'>XL</option>
+                <option value='X-Small'>XS</option>
+                <option value='Small'>S</option>
+                <option value='Medium'>M</option>
+                <option value='Large'>L</option>
+                <option value='X-Large'>XL</option>
               </select>
             </form>
           )}
@@ -82,7 +84,7 @@ class ProductPage extends Component {
           <p>
             <strong>Product Info:</strong>
           </p>
-          <p>{productInfo}</p>
+          <p>{productinfo}</p>
         </section>
       </div>
     );

@@ -26,7 +26,7 @@ class CartItems extends Component {
         </div>
         <div className='cart-details'>
           <p><strong>{cartItem.productname}</strong></p>
-          <p>Size: {cartItem.size}</p>
+          {cartItem.category === 'tshirts' && <p>Size: {cartItem.size}</p>}
           {/* <input type='button' value='-'/>
           <input
             type='number'
