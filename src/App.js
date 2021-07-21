@@ -71,6 +71,7 @@ class App extends Component {
     const contextValue = {
       products: this.state.products,
       shoppingCart: this.state.shoppingCart,
+      fetchData: this.fetchData,
       addToCart: this.addToCart,
       removeFromCart: this.removeFromCart
     }

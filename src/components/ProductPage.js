@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import ShoppingContext from '../ShoppingContext';
-// import { v4 as uuidv4 } from 'uuid';
+import config from '../config'
 import '../styles/ProductPreview.css';
 
 
 class ProductPage extends Component {
-  //to be used to POST to server
   state = {
     productid: '',
     productname: '',
@@ -43,8 +42,30 @@ class ProductPage extends Component {
 
   handleAddToCart = () => {
     const { productid, productname, category, price, img, productinfo, size} = this.state
-    // let product = this.state;
-    // this.context.addToCart(product);
+    const newItem = { productid, productname, category, price, img, productinfo, size}
+    const url = `${config.API_ENDPOINT}/shoppingCart`
+    const options = {
+      method: 'POST',
+      body: JSON.stringify(newItem),
+      headers: { 'Content-Type': 'application/json'}
+    }
+
+    fetch(url, options)
+    .then((res) => {
+      if (!res.ok) {
+        throw new Error('Something went wrong, please try again later.');
+      }
+      return res.json();
+    })
+    .then(() => {
+      //module for 'added to cart message' ?
+      this.context.fetchData()
+    })
+    .catch((error) => {
+      this.setState({
+        error: error.message,
+      });
+    });
   };
 
   render() {
