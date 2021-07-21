@@ -7,9 +7,9 @@ class ProductPreview extends Component {
     const {product} = this.props
 
     return (
-            <div onClick={() => this.props.history.push(`/shop/${product.category}/${product.title}`)}>
-          <img src={product.img} alt={`${product.title} product`} className='product-preview-img' />
-          <p>{product.title}</p>
+            <div onClick={() => this.props.history.push(`/shop/${product.category}/${product.productname}`)}>
+          <img src={product.img} alt={`${product.productname} product`} className='product-preview-img' />
+          <p>{product.productname}</p>
           <p>${product.price}</p>
             </div>
     )

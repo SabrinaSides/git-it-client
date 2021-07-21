@@ -11,9 +11,9 @@ class ShoppingCart extends Component {
       const shoppingCart = this.context.shoppingCart
       let subtotal = 0
       shoppingCart.forEach(cartItem => {
-        subtotal += cartItem.price
+        subtotal += parseFloat(cartItem.price)
       })
-      return subtotal.toFixed(2)
+      return subtotal
     }
 
     calculateSalesTax = () => {
@@ -37,7 +37,7 @@ class ShoppingCart extends Component {
                 <header>
         <h1>Your Shopping Cart</h1>
       </header>
-      <button className='back-btn' onClick={() => this.props.history.goBack()}>Back</button>
+      
       <div className='cart-items-container'>
       {shoppingCart.map((cartItem, idx) => {
          return <CartItems key={idx} cartItem={cartItem} pathname={this.props.location.pathname}/>

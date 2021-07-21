@@ -34,9 +34,9 @@ export default class Review extends React.Component {
         const shoppingCart = this.context.shoppingCart
         let subtotal = 0
         shoppingCart.forEach(cartItem => {
-          subtotal += cartItem.price
+          subtotal += parseFloat(cartItem.price)
         })
-        return subtotal.toFixed(2)
+        return subtotal
       }
   
       calculateSalesTax = () => {

@@ -17,12 +17,12 @@ class CartItems extends Component {
         <div>
           <img
             src={cartItem.img}
-            alt={`${cartItem.title}`}
+            alt={`${cartItem.productname}`}
             className='cart-img'
           />
         </div>
         <div className='cart-details'>
-          <p><strong>{cartItem.title}</strong></p>
+          <p><strong>{cartItem.productname}</strong></p>
           <p>Size: {cartItem.size}</p>
           {/* <input type='button' value='-'/>
           <input

@@ -5,11 +5,10 @@ import '../styles/ProductPreview.css';
 class ProductPage extends Component {
   state = {
     cartItemId: uuidv4(),
-    title: '',
+    productname: '',
     category: '',
     price: '',
-    searchTerms: [],
-    img: null,
+    //img: null,
     productInfo: '',
     size: 'x-small',
   };
@@ -19,24 +18,22 @@ class ProductPage extends Component {
   componentDidMount() {
     let chosenProduct = this.context.products.find((product) => {
       return (
-        `/shop/${product.category}/${product.title}` ===
+        `/shop/${product.category}/${product.productname}` ===
         this.props.location.pathname
       );
     });
 
     this.setState({
-      title: chosenProduct.title,
+      productname: chosenProduct.productname,
       category: chosenProduct.category,
       price: chosenProduct.price,
-      searchTerms: chosenProduct.searchTerms,
-      img: chosenProduct.img,
+      //img: chosenProduct.img,
       productInfo: chosenProduct.productInfo,
     });
   }
 
   handleAddToCart = () => {
     let product = this.state;
-    console.log(product);
     this.context.addToCart(product);
     //new cartId for every item added
     this.setState({
@@ -45,17 +42,17 @@ class ProductPage extends Component {
   };
 
   render() {
-    const { title, price, img, productInfo } = this.state;
+    const { productname, price, img, productInfo } = this.state;
 
     return (
       <div>      
         <header className='banner'>
-          <h1>{title}</h1>
+          <h1>{productname}</h1>
         </header>
         <button className='back-btn' onClick={() => this.props.history.goBack()}>Back</button>
         
         <section>
-        <img src={img} alt={`${title}`} className='product-preview-img' />
+        <img src={img} alt={`${productname}`} className='product-preview-img' />
           <p>${price}</p>
           {this.state.category === 'tshirts' && (
             <form
