@@ -1,18 +1,19 @@
 import React, { Component } from 'react';
 import ShoppingContext from '../ShoppingContext';
-import { v4 as uuidv4 } from 'uuid';
+// import { v4 as uuidv4 } from 'uuid';
 import '../styles/ProductPreview.css';
 
 
 class ProductPage extends Component {
+  //to be used to POST to server
   state = {
-    cartItemId: uuidv4(),
+    productid: '',
     productname: '',
     category: '',
     price: '',
     img: '',
-    productInfo: '',
-    size: 'x-small',
+    productinfo: '',
+    size: null,
   };
 
   static contextType = ShoppingContext;
@@ -31,6 +32,7 @@ class ProductPage extends Component {
     });
 
     this.setState({
+      productid: chosenProduct.id,
       productname: chosenProduct.productname,
       category: chosenProduct.category,
       price: chosenProduct.price,
@@ -40,12 +42,9 @@ class ProductPage extends Component {
   }
 
   handleAddToCart = () => {
-    let product = this.state;
-    this.context.addToCart(product);
-    //new cartId for every item added
-    this.setState({
-      cartItemId: uuidv4(),
-    });
+    const { productid, productname, category, price, img, productinfo, size} = this.state
+    // let product = this.state;
+    // this.context.addToCart(product);
   };
 
   render() {

@@ -15,32 +15,48 @@ import './App.css';
 class App extends Component {
   state = {
     products: [],
-    shoppingCart: []
+    shoppingCart: [],
+    error: ''
   }
 
   componentDidMount(){
-    this.handleFetchData()
+    this.fetchData()
   }
 
-  handleFetchData = () => {
-    fetch(`${config.API_ENDPOINT}`)
+  fetchData = () => {
+    Promise.all([
+      this.fetchProducts(),
+      this.fetchShoppingCart()
+    ])
+      .then(([products, shoppingCart]) => this.setState({ products, shoppingCart }))
+      .catch(error => this.setState(error))
+  }
+  
+  fetchProducts = () => {
+    return fetch(`${config.API_ENDPOINT}/products`)
       .then((res) => {
         if (!res.ok) {
           throw new Error(res.statusText);
         }
         return res.json();
       })
-      .then((products) => {
-        this.setState({ products });
-      })
-      .catch((error) => this.setState(error));
-  };
-
-  addToCart = (product) => {
-    this.setState({
-      shoppingCart: [...this.state.shoppingCart, product]
-    })
   }
+
+  fetchShoppingCart = () => {
+    return fetch(`${config.API_ENDPOINT}/shoppingCart`)
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error(res.statusText);
+        }
+        return res.json();
+      })
+  }
+
+  // addToCart = (product) => {
+  //   this.setState({
+  //     shoppingCart: [...this.state.shoppingCart, product]
+  //   })
+  // }
 
   removeFromCart = (cartItemId) => {
     this.setState({
