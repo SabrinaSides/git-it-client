@@ -23,21 +23,33 @@ class ProductPage extends Component {
   }
 
   componentDidMount() {
-    let chosenProduct = this.context.products.find((product) => {
-      return (
-        `/shop/${product.category}/${product.productname}` ===
-        this.props.location.pathname
-      );
-    });
+    this.fetchProduct()
+  }
 
-    this.setState({
-      productid: chosenProduct.id,
-      productname: chosenProduct.productname,
-      category: chosenProduct.category,
-      price: chosenProduct.price,
-      img: chosenProduct.img,
-      productinfo: chosenProduct.productinfo,
-    });
+  fetchProduct = () => {
+    let chosenProduct = this.context.products.find((product) => {
+        return (
+          `/shop/${product.category}/${product.id}` ===
+          this.props.location.pathname
+        );
+      });
+
+   fetch(`${config.API_ENDPOINT}/products/${chosenProduct.id}`)
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error(res.statusText);
+        }
+        return res.json()
+      })
+      .then(product => this.setState({
+      productid: product.id,
+      productname: product.productname,
+      category: product.category,
+      price: product.price,
+      img: product.img,
+      productinfo: product.productinfo
+       }))
+      .catch(error => this.setState(error))
   }
 
   handleAddToCart = () => {
