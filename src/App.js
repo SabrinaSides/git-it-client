@@ -52,28 +52,20 @@ class App extends Component {
       })
   }
 
-  // addToCart = (product) => {
+  // removeFromCart = (cartItemId) => {
   //   this.setState({
-  //     shoppingCart: [...this.state.shoppingCart, product]
+  //     shoppingCart: this.state.shoppingCart.filter(cartItem => {
+  //       return cartItem.cartItemId !== cartItemId
+  //     })
   //   })
   // }
-
-  removeFromCart = (cartItemId) => {
-    this.setState({
-      shoppingCart: this.state.shoppingCart.filter(cartItem => {
-        return cartItem.cartItemId !== cartItemId
-      })
-    })
-  }
 
   render(){
 
     const contextValue = {
       products: this.state.products,
       shoppingCart: this.state.shoppingCart,
-      fetchData: this.fetchData,
-      addToCart: this.addToCart,
-      removeFromCart: this.removeFromCart
+      fetchData: this.fetchData
     }
 
   return (

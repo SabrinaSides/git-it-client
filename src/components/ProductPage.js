@@ -12,7 +12,7 @@ class ProductPage extends Component {
     price: '',
     img: '',
     productinfo: '',
-    size: null,
+    size: 'X-Small',
   };
 
   static contextType = ShoppingContext;

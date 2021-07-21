@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import config from '../config'
 import '../styles/CartItems.css';
 import ShoppingContext from '../ShoppingContext';
 
@@ -10,7 +11,18 @@ class CartItems extends Component {
     }
 
     handleRemoveFromCart = (cartItemId) => {
-        this.context.removeFromCart(cartItemId)
+        const url = `${config.API_ENDPOINT}/shoppingCart/${cartItemId}`
+        const options = {
+          method: 'DELETE',
+          headers: { 'Content-Type': 'application/json' }
+        }
+
+        fetch(url, options)
+          .then(() => {
+            this.context.fetchData()
+          })
+
+        console.log('deleted')
       }
 
   render() {
@@ -43,7 +55,7 @@ class CartItems extends Component {
           <input type='button' value='+'/> */}
           <p>Price: ${cartItem.price}</p>
           {this.props.pathname === '/shopping-cart/checkout' ? <div></div> :
-          <button onClick={event => this.handleRemoveFromCart(cartItem.cartItemId)}>Remove</button>}
+          <button onClick={event => this.handleRemoveFromCart(cartItem.id)}>Remove</button>}
         </div>
       </section>
     );
