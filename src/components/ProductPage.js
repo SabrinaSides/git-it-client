@@ -15,6 +15,11 @@ class ProductPage extends Component {
 
   static contextType = ShoppingContext;
 
+  static defaultProps = {
+    products: [],
+    chosenProduct: []
+  }
+
   componentDidMount() {
     let chosenProduct = this.context.products.find((product) => {
       return (

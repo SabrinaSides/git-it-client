@@ -5,6 +5,12 @@ import '../styles/Navbar.css';
 class Navbar extends Component {
   static contextType = ShoppingContext;
 
+  static defaultProps = {
+    location: {
+      pathname: ''
+    }
+  }
+
   render() {
     const { shoppingCart } = this.context;
     let cartCount = shoppingCart.length;

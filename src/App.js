@@ -8,7 +8,7 @@ import ProductPage from './components/ProductPage'
 import ShoppingCart from './components/ShoppingCart'
 import Navbar from './components/Navbar';
 import Checkout from './components/Checkout';
-import dummyData from './dummy-data'
+// import dummyData from './dummy-data'
 import config from './config'
 import './App.css';
 
@@ -23,7 +23,6 @@ class App extends Component {
   }
 
   handleFetchData = () => {
-    console.log(config.API_ENDPOINT)
     fetch(`${config.API_ENDPOINT}`)
       .then((res) => {
         if (!res.ok) {

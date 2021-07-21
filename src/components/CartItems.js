@@ -5,6 +5,9 @@ import ShoppingContext from '../ShoppingContext';
 class CartItems extends Component {
     static contextType = ShoppingContext
 
+    static defaultProps = {
+      cartItem: []
+    }
 
     handleRemoveFromCart = (cartItemId) => {
         this.context.removeFromCart(cartItemId)

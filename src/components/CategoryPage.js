@@ -6,6 +6,12 @@ class CategoryPage extends Component {
 
   static contextType = ShoppingContext;
 
+  static defaultProps = {
+    location: {
+      pathname: ''
+    }
+  }
+
   render() {
 
     const {products} = this.context

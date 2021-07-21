@@ -2,6 +2,9 @@ import React, {Component} from 'react'
 import '../styles/ProductPreview.css'
 
 class ProductPreview extends Component {
+  static defaultProps = {
+    product: {}
+  }
 
   render(){
     const {product} = this.props
