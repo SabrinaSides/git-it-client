@@ -26,11 +26,11 @@ class CategoryPage extends Component {
           <h1>{this.props.location.pathname === '/shop/tshirts' ? 'T-Shirts' : 'Mugs'}</h1>
         </header>
 
-        <button className='back-btn' onClick={() => this.props.history.goBack()}>Back</button>
+        <button className='button back-btn' onClick={() => this.props.history.goBack()}><span>Back</span></button>
         <h3>Shop The Products:</h3>
-        {chosenCategory.map(product => {
+        {chosenCategory.map((product, idx) => {
         return (
-          <ProductPreview product={product} key={product.title} history={this.props.history}/>
+          <ProductPreview product={product} key={idx} history={this.props.history}/>
         )
       })}
       </div>

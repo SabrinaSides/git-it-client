@@ -1,6 +1,7 @@
 .navbar {
   width: 100%;
   background-color: #dc352e;
+  border-bottom: solid #dc352e;
 }
 
 .navbar-content {

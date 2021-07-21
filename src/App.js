@@ -52,14 +52,6 @@ class App extends Component {
       })
   }
 
-  // removeFromCart = (cartItemId) => {
-  //   this.setState({
-  //     shoppingCart: this.state.shoppingCart.filter(cartItem => {
-  //       return cartItem.cartItemId !== cartItemId
-  //     })
-  //   })
-  // }
-
   render(){
 
     const contextValue = {

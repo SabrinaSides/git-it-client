@@ -39,7 +39,7 @@ class LandingPage extends Component {
           <header>
             <h3>Start Shopping Now</h3>
           </header>
-          <button onClick={() => this.props.history.push('/shop')}>Shop</button>
+          <button className='button' onClick={() => this.props.history.push('/shop')}><span>Shop</span></button>
         </section>
       </div>
     );

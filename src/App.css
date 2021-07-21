@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
 * {
   padding: 0;
   box-sizing: border-box;
@@ -6,13 +8,20 @@
 
 .App {
   margin-bottom: 5%;
+  font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+  font-size: 40px;
+  font-weight: bold;
 }
 
 .banner {
   background: url('./images/triangle-banner.png');
   background-repeat: no-repeat;
   width: auto;
-  padding: 13% 5%;
+  height: auto;
+  padding: 10px 5px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -29,12 +38,30 @@
   margin-top: 2%;
 }
 
+.button {
+  transition-duration: 0.4s;
+  background-color: #573bca;
+  color: white;
+  border-radius: 4px;
+  border: none;
+  text-align: center;
+  font-size: 16px;
+  padding: 10px;
+  width: 100px;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.button:hover {
+  background-color: #341b99;
+  color: white;
+}
+
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
   .banner {
     width: 100%;
     background-repeat: repeat;
-    /* max-height: 100px */
   }
 
   .home-img {

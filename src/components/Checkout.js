@@ -1,5 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import { Link } from 'react-router-dom'
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Paper from '@material-ui/core/Paper';
 import Stepper from '@material-ui/core/Stepper';
@@ -77,12 +78,12 @@ export default function Checkout() {
 
   return (
     <React.Fragment>
+      <header className='banner'>
+          <h1>Checkout</h1>
+        </header>
       <CssBaseline />
       <main className={classes.layout}>
         <Paper className={classes.paper}>
-          <Typography component="h1" variant="h4" align="center">
-            Checkout
-          </Typography>
           <p>All info prefilled for demo</p>
           <Stepper activeStep={activeStep} className={classes.stepper}>
             {steps.map((label) => (
@@ -101,6 +102,8 @@ export default function Checkout() {
                   Your order number is #2001539. We have emailed your order confirmation, and will
                   send you an update when your order has shipped.
                 </Typography>
+                <br/>
+                <Link to={'/shop'}>Back to Shopping</Link>
               </React.Fragment>
             ) : (
               <React.Fragment>
