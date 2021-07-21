@@ -76,7 +76,7 @@ class ProductPage extends Component {
         <header className='banner'>
           <h1>{productname}</h1>
         </header>
-        <button className='back-btn' onClick={() => this.props.history.goBack()}>Back</button>
+        <button className='back-btn button' onClick={() => this.props.history.goBack()}>Back</button>
         
         <section>
         <img src={img} alt={`${productname}`} className='product-preview-img' />
@@ -95,7 +95,7 @@ class ProductPage extends Component {
               </select>
             </form>
           )}
-          <button onClick={(event) => this.handleAddToCart()}>
+          <button className='button'onClick={(event) => this.handleAddToCart()}>
             Add to Cart
           </button>
         </section>

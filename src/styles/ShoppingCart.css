@@ -1,6 +1,7 @@
 .cart-items-container {
   border: solid thin;
-  margin: 2%;
+  border-radius: 4px;
+  margin: 3%;
 }
 
 /* Medium devices (tablets, 768px and up) */

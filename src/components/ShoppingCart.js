@@ -12,7 +12,7 @@ class ShoppingCart extends Component {
     shoppingCart.forEach((cartItem) => {
       subtotal += parseFloat(cartItem.price);
     });
-    return subtotal;
+    return subtotal.toFixed(2);
   };
 
   calculateSalesTax = () => {
@@ -36,32 +36,43 @@ class ShoppingCart extends Component {
           <h1>Shopping Cart</h1>
         </header>
 
-        <div className='cart-items-container'>
-          {shoppingCart.map((cartItem, idx) => {
-            return (
-              <CartItems
-                key={idx}
-                cartItem={cartItem}
-                pathname={this.props.location.pathname}
-              />
-            );
-          })}
-        </div>
-        <section>
-          <p>Subtotal: ${this.calculateSubtotal()}</p>
-          <p>Shipping: FREE</p>
-          <p>Taxes: ${this.calculateSalesTax()}</p>
-          <p>Total: ${this.calculateTotal()} </p>
-          <button
-            onClick={() => {
-              shoppingCart.length >= 1
-                ? this.props.history.push('/shopping-cart/checkout')
-                : alert('No items in your cart');
-            }}
-          >
-            Check Out
-          </button>
-        </section>
+        <button
+          className='button back-btn'
+          onClick={() => this.props.history.goBack()}
+        >
+          Back
+        </button>
+        {this.context.shoppingCart.length > 0 ? (
+          <div>
+            <div className='cart-items-container'>
+              {shoppingCart.map((cartItem, idx) => {
+                return (
+                  <CartItems
+                    key={idx}
+                    cartItem={cartItem}
+                    pathname={this.props.location.pathname}
+                  />
+                );
+              })}
+            </div>
+            <section>
+              <p>Subtotal: ${this.calculateSubtotal()}</p>
+              <p>Shipping: FREE</p>
+              <p>Taxes: ${this.calculateSalesTax()}</p>
+              <p>Total: ${this.calculateTotal()} </p>
+              <button
+                className='button'
+                onClick={() =>
+                  this.props.history.push('/shopping-cart/checkout')
+                }
+              >
+                Check Out
+              </button>
+            </section>
+          </div>
+        ) : (
+          <h2>No items in your cart...get to shopping!</h2>
+        )}
       </div>
     );
   }

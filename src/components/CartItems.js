@@ -21,8 +21,6 @@ class CartItems extends Component {
           .then(() => {
             this.context.fetchData()
           })
-
-        console.log('deleted')
       }
 
   render() {
@@ -39,23 +37,9 @@ class CartItems extends Component {
         <div className='cart-details'>
           <p><strong>{cartItem.productname}</strong></p>
           {cartItem.category === 'tshirts' && <p>Size: {cartItem.size}</p>}
-          {/* <input type='button' value='-'/>
-          <input
-            type='number'
-            step='1'
-            min='1'
-            max=''
-            value='1'
-            title='Qty'
-            className=''
-            size='4'
-            pattern=''
-            inputMode=''
-          />
-          <input type='button' value='+'/> */}
           <p>Price: ${cartItem.price}</p>
           {this.props.pathname === '/shopping-cart/checkout' ? <div></div> :
-          <button onClick={event => this.handleRemoveFromCart(cartItem.id)}>Remove</button>}
+          <button className='button' onClick={event => this.handleRemoveFromCart(cartItem.id)}>Remove</button>}
         </div>
       </section>
     );
