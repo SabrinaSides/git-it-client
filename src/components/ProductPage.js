@@ -24,8 +24,9 @@ class ProductPage extends Component {
 
   componentDidMount() {
     this.fetchProduct()
-  }
 
+  }
+  
   fetchProduct = () => {
     let chosenProduct = this.context.products.find((product) => {
         return (
