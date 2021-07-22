@@ -18,23 +18,11 @@ class Navbar extends Component {
     return (
       <div className='navbar'>
         <div className='navbar-content'>
-          {/* <div>[BurgerMenu]</div> */}
           <div><h2 onClick={() => this.props.history.push('/shop')}>Git It</h2></div>
           {this.props.location.pathname !== '/shopping-cart/checkout' ? <div onClick={() => this.props.history.push('/shopping-cart')}>
             Cart[{cartCount}]
           </div> : <></>}
         </div>
-        {/* <form className='icons'>
-          <label htmlFor='product-search'>[Search icon]:</label>
-          <input
-            type='text'
-            id='product-search'
-            name='product-search'
-            placeholder='Search'
-          />
-          <br />
-          <input type='submit' value='Submit' />
-        </form> */}
       </div>
     );
   }

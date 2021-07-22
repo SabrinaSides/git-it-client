@@ -11,6 +11,7 @@ import Typography from '@material-ui/core/Typography';
 import AddressForm from './AddressForm';
 import PaymentForm from './PaymentForm';
 import Review from './CheckoutReview';
+import config from '../config'
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
@@ -64,7 +65,7 @@ function getStepContent(step) {
   }
 }
 
-export default function Checkout() {
+export default function Checkout(props) {
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
 
@@ -75,6 +76,19 @@ export default function Checkout() {
   const handleBack = () => {
     setActiveStep(activeStep - 1);
   };
+
+  const handleDeleteEntireCart = () => {
+    const url = `${config.API_ENDPOINT}/shoppingCart`
+    const options = {
+      method: 'DELETE',
+      headers: { 'Content-Type': 'application/json' }
+    }
+
+    fetch(url, options)
+      .then(() => {
+        props.fetchData();
+      })
+  }
 
   return (
     <React.Fragment>
@@ -103,7 +117,7 @@ export default function Checkout() {
                   send you an update when your order has shipped.
                 </Typography>
                 <br/>
-                <Link to={'/shop'}>Back to Shopping</Link>
+                <Link to={'/shop'} onClick={handleDeleteEntireCart}>Back to Home Page</Link>
               </React.Fragment>
             ) : (
               <React.Fragment>

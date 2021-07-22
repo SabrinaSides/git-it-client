@@ -73,7 +73,9 @@ class App extends Component {
         <Route path='/shop/:category/:product' component={ProductPage} />
         <Route path='/shop/:category' component={CategoryPage} />
         <Route path='/shop' component={HomePage} />
-        <Route path='/shopping-cart/checkout' component={Checkout} />
+        <Route path='/shopping-cart/checkout' render={(props) => (
+    <Checkout {...props} fetchData={this.fetchData} />
+  )} />
         <Route path='/shopping-cart' component={ShoppingCart} />
         </Switch>
       </main>
