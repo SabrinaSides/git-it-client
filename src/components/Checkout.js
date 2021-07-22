@@ -84,7 +84,7 @@ export default function Checkout() {
       <CssBaseline />
       <main className={classes.layout}>
         <Paper className={classes.paper}>
-          <p>All info prefilled for demo</p>
+          <p>**All info prefilled for demo**</p>
           <Stepper activeStep={activeStep} className={classes.stepper}>
             {steps.map((label) => (
               <Step key={label}>

@@ -33,11 +33,6 @@ h1 {
   height: 10%;
 }
 
-.back-btn {
-  margin-right: 80%;
-  margin-top: 2%;
-}
-
 .button {
   transition-duration: 0.4s;
   background-color: #49359b;
@@ -55,6 +50,11 @@ h1 {
 .button:active {
   background-color: #341b99;
   color: white;
+}
+
+.back-btn {
+  margin-right: 70%;
+  margin-top: 2%;
 }
 
 /* Medium devices (tablets, 768px and up) */
