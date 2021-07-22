@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ShoppingContext from '../ShoppingContext';
 import config from '../config'
+import Popup from './Popup'
 import '../styles/ProductPreview.css';
 
 
@@ -13,6 +14,7 @@ class ProductPage extends Component {
     img: '',
     productinfo: '',
     size: 'X-Small',
+    popup: false
   };
 
   static contextType = ShoppingContext;
@@ -71,8 +73,19 @@ class ProductPage extends Component {
       return res.json();
     })
     .then(() => {
-      //module for 'added to cart message' ?
+      
       this.context.fetchData()
+
+      //'added to cart' popup
+      this.setState({
+        popup: true
+      })
+
+      setTimeout(() => {
+        this.setState({
+          popup: false
+        })
+      }, 500)
     })
     .catch((error) => {
       this.setState({
@@ -111,6 +124,9 @@ class ProductPage extends Component {
           <button className='button'onClick={(event) => this.handleAddToCart()}>
             Add to Cart
           </button>
+          <Popup trigger={this.state.popup}>
+            <h3>Item Added To Cart</h3>
+          </Popup>
         </section>
 
         <section>
