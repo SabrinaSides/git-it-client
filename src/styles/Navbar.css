@@ -9,11 +9,14 @@
   flex-direction: row nowrap;
   justify-content: space-between;
   align-items: center;
-  padding: 0 3%;
+  padding: 0 5%;
+  color: white;
+  font-family: 'Maven Pro', sans-serif;
 }
 
 .navbar-content h2 {
   font-size: 30px;
+  font-weight: 900;
 }
 
 /* Medium devices (tablets, 768px and up) */
