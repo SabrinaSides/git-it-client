@@ -22,10 +22,19 @@ class Navbar extends Component {
       <div className='navbar'>
         <div className='navbar-content'>
           <div>
-            <h2 onClick={() => this.props.history.push('/shop')} className='link'><MonetizationOnIcon />Git It</h2>
+            <h2
+              onClick={() => this.props.history.push('/shop')}
+              className='link'
+            >
+              <MonetizationOnIcon />
+              Git It
+            </h2>
           </div>
           {this.props.location.pathname !== '/shopping-cart/checkout' ? (
-            <div onClick={() => this.props.history.push('/shopping-cart')} className='link'>
+            <div
+              onClick={() => this.props.history.push('/shopping-cart')}
+              className='link'
+            >
               <div>
                 <Badge color='primary' badgeContent={cartCount}>
                   <ShoppingCartIcon />

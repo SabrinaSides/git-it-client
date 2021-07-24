@@ -44,18 +44,18 @@ class ShoppingCart extends Component {
         </button>
         {this.context.shoppingCart.length > 0 ? (
           <div>
-          <div className='shopping-cart'>
-            <div className='cart-items-container'>
-              {shoppingCart.map((cartItem, idx) => {
-                return (
-                  <CartItems
-                    key={idx}
-                    cartItem={cartItem}
-                    pathname={this.props.location.pathname}
-                  />
-                );
-              })}
-            </div>
+            <div className='shopping-cart'>
+              <div className='cart-items-container'>
+                {shoppingCart.map((cartItem, idx) => {
+                  return (
+                    <CartItems
+                      key={idx}
+                      cartItem={cartItem}
+                      pathname={this.props.location.pathname}
+                    />
+                  );
+                })}
+              </div>
             </div>
             <section>
               <p>Subtotal: ${this.calculateSubtotal()}</p>
@@ -72,7 +72,6 @@ class ShoppingCart extends Component {
               </button>
             </section>
           </div>
-          
         ) : (
           <h2>No items in your cart...get to shopping!</h2>
         )}

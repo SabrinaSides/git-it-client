@@ -59,17 +59,17 @@ export default class Review extends React.Component {
           Order summary
         </Typography>
         <div className='shopping-cart'>
-        <div className='cart-items-container'>
-          {shoppingCart.map((cartItem, idx) => {
-            return (
-              <CartItems
-                key={idx}
-                cartItem={cartItem}
-                pathname={'/shopping-cart/checkout'}
-              />
-            );
-          })}
-        </div>
+          <div className='cart-items-container'>
+            {shoppingCart.map((cartItem, idx) => {
+              return (
+                <CartItems
+                  key={idx}
+                  cartItem={cartItem}
+                  pathname={'/shopping-cart/checkout'}
+                />
+              );
+            })}
+          </div>
         </div>
         <section>
           <p>Subtotal: ${this.calculateSubtotal()}</p>

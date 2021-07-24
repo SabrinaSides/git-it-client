@@ -1,23 +1,30 @@
-import React, {Component} from 'react'
-import '../styles/ProductPreview.css'
+import React, { Component } from 'react';
+import '../styles/ProductPreview.css';
 
 class ProductPreview extends Component {
   static defaultProps = {
-    product: {}
-  }
+    product: {},
+  };
 
-  render(){
-    const {product} = this.props
+  render() {
+    const { product } = this.props;
 
     return (
-            <div onClick={() => this.props.history.push(`/shop/${product.category}/${product.id}`)}>
-          <img src={product.img} alt={`${product.productname} product`} className='product-preview-img link' />
-          <p className='link'>{product.productname}</p>
-          <p>${product.price}</p>
-            </div>
-    )
+      <div
+        onClick={() =>
+          this.props.history.push(`/shop/${product.category}/${product.id}`)
+        }
+      >
+        <img
+          src={product.img}
+          alt={`${product.productname} product`}
+          className='product-preview-img link'
+        />
+        <p className='link'>{product.productname}</p>
+        <p>${product.price}</p>
+      </div>
+    );
   }
 }
 
-export default ProductPreview
-
+export default ProductPreview;

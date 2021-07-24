@@ -8,43 +8,55 @@ import Checkbox from '@material-ui/core/Checkbox';
 export default function PaymentForm() {
   return (
     <React.Fragment>
-      <Typography variant="h6" gutterBottom>
+      <Typography variant='h6' gutterBottom>
         Payment method
       </Typography>
       <Grid container spacing={3}>
         <Grid item xs={12} md={6}>
-          <TextField required id="cardName" label="Name on card" fullWidth autoComplete="cc-name" value='John Smith'/>
-        </Grid>
-        <Grid item xs={12} md={6}>
           <TextField
             required
-            id="cardNumber"
-            label="Card number"
+            id='cardName'
+            label='Name on card'
             fullWidth
-            value="1234-567-8900"
+            autoComplete='cc-name'
+            value='John Smith'
           />
         </Grid>
         <Grid item xs={12} md={6}>
-          <TextField required id="expDate" label="Expiry date" fullWidth value="10/24" />
+          <TextField
+            required
+            id='cardNumber'
+            label='Card number'
+            fullWidth
+            value='1234-567-8900'
+          />
         </Grid>
         <Grid item xs={12} md={6}>
           <TextField
             required
-            id="cvv"
-            label="CVV"
-            helperText="Last three digits on signature strip"
+            id='expDate'
+            label='Expiry date'
             fullWidth
-            value="123"
+            value='10/24'
+          />
+        </Grid>
+        <Grid item xs={12} md={6}>
+          <TextField
+            required
+            id='cvv'
+            label='CVV'
+            helperText='Last three digits on signature strip'
+            fullWidth
+            value='123'
           />
         </Grid>
         <Grid item xs={12}>
           <FormControlLabel
-            control={<Checkbox color="secondary" name="saveCard" value="yes" />}
-            label="Remember credit card details for next time"
+            control={<Checkbox color='secondary' name='saveCard' value='yes' />}
+            label='Remember credit card details for next time'
           />
         </Grid>
       </Grid>
     </React.Fragment>
   );
 }
-

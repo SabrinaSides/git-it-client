@@ -16,7 +16,7 @@ class HomePage extends Component {
           <img src={tShirts} alt='Rack of tshirts' className='home-img link' />
         </section>
 
-        <section onClick={() => this.props.history.push('/shop/mugs')} >
+        <section onClick={() => this.props.history.push('/shop/mugs')}>
           <h3 className='link'>Shop Mugs</h3>
           <img src={mug} alt='Coding-themed mug' className='home-img link' />
         </section>

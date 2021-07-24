@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Paper from '@material-ui/core/Paper';
 import Stepper from '@material-ui/core/Stepper';
@@ -11,7 +11,7 @@ import Typography from '@material-ui/core/Typography';
 import AddressForm from './AddressForm';
 import PaymentForm from './PaymentForm';
 import Review from './CheckoutReview';
-import config from '../config'
+import config from '../config';
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
@@ -78,23 +78,22 @@ export default function Checkout(props) {
   };
 
   const handleDeleteEntireCart = () => {
-    const url = `${config.API_ENDPOINT}/shoppingCart`
+    const url = `${config.API_ENDPOINT}/shoppingCart`;
     const options = {
       method: 'DELETE',
-      headers: { 'Content-Type': 'application/json' }
-    }
+      headers: { 'Content-Type': 'application/json' },
+    };
 
-    fetch(url, options)
-      .then(() => {
-        props.fetchData();
-      })
-  }
+    fetch(url, options).then(() => {
+      props.fetchData();
+    });
+  };
 
   return (
     <React.Fragment>
       <header className='banner'>
-          <h1>Checkout</h1>
-        </header>
+        <h1>Checkout</h1>
+      </header>
       <CssBaseline />
       <main className={classes.layout}>
         <Paper className={classes.paper}>
@@ -109,15 +108,18 @@ export default function Checkout(props) {
           <React.Fragment>
             {activeStep === steps.length ? (
               <React.Fragment>
-                <Typography variant="h5" gutterBottom>
+                <Typography variant='h5' gutterBottom>
                   Thank you for your order.
                 </Typography>
-                <Typography variant="subtitle1">
-                  Your order number is #2001539. We have emailed your order confirmation, and will
-                  send you an update when your order has shipped.
+                <Typography variant='subtitle1'>
+                  Your order number is #2001539. We have emailed your order
+                  confirmation, and will send you an update when your order has
+                  shipped.
                 </Typography>
-                <br/>
-                <Link to={'/shop'} onClick={handleDeleteEntireCart}>Back to Home Page</Link>
+                <br />
+                <Link to={'/shop'} onClick={handleDeleteEntireCart}>
+                  Back to Home Page
+                </Link>
               </React.Fragment>
             ) : (
               <React.Fragment>
@@ -129,8 +131,8 @@ export default function Checkout(props) {
                     </Button>
                   )}
                   <Button
-                    variant="contained"
-                    color="primary"
+                    variant='contained'
+                    color='primary'
                     onClick={handleNext}
                     className={classes.button}
                   >

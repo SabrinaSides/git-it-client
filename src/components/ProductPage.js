@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import ShoppingContext from '../ShoppingContext';
-import config from '../config'
-import Popup from './Popup'
+import config from '../config';
+import Popup from './Popup';
 import '../styles/ProductPreview.css';
-
 
 class ProductPage extends Component {
   state = {
@@ -14,98 +13,116 @@ class ProductPage extends Component {
     img: '',
     productinfo: '',
     size: 'X-Small',
-    popup: false
+    popup: false,
   };
 
   static contextType = ShoppingContext;
 
   static defaultProps = {
     products: [],
-    chosenProduct: []
-  }
+    chosenProduct: [],
+  };
 
   componentDidMount() {
-    this.fetchProduct()
-
+    this.fetchProduct();
   }
-  
+
   fetchProduct = () => {
     let chosenProduct = this.context.products.find((product) => {
-        return (
-          `/shop/${product.category}/${product.id}` ===
-          this.props.location.pathname
-        );
-      });
+      return (
+        `/shop/${product.category}/${product.id}` ===
+        this.props.location.pathname
+      );
+    });
 
-   fetch(`${config.API_ENDPOINT}/products/${chosenProduct.id}`)
+    fetch(`${config.API_ENDPOINT}/products/${chosenProduct.id}`)
       .then((res) => {
         if (!res.ok) {
           throw new Error(res.statusText);
         }
-        return res.json()
+        return res.json();
       })
-      .then(product => this.setState({
-      productid: product.id,
-      productname: product.productname,
-      category: product.category,
-      price: product.price,
-      img: product.img,
-      productinfo: product.productinfo
-       }))
-      .catch(error => this.setState(error))
-  }
+      .then((product) =>
+        this.setState({
+          productid: product.id,
+          productname: product.productname,
+          category: product.category,
+          price: product.price,
+          img: product.img,
+          productinfo: product.productinfo,
+        })
+      )
+      .catch((error) => this.setState(error));
+  };
 
   handleAddToCart = () => {
-    const { productid, productname, category, price, img, productinfo, size} = this.state
-    const newItem = { productid, productname, category, price, img, productinfo, size}
-    const url = `${config.API_ENDPOINT}/shoppingCart`
+    const { productid, productname, category, price, img, productinfo, size } =
+      this.state;
+    const newItem = {
+      productid,
+      productname,
+      category,
+      price,
+      img,
+      productinfo,
+      size,
+    };
+    const url = `${config.API_ENDPOINT}/shoppingCart`;
     const options = {
       method: 'POST',
       body: JSON.stringify(newItem),
-      headers: { 'Content-Type': 'application/json'}
-    }
+      headers: { 'Content-Type': 'application/json' },
+    };
 
     fetch(url, options)
-    .then((res) => {
-      if (!res.ok) {
-        throw new Error('Something went wrong, please try again later.');
-      }
-      return res.json();
-    })
-    .then(() => {
-      
-      this.context.fetchData()
-
-      //'added to cart' popup
-      this.setState({
-        popup: true
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error('Something went wrong, please try again later.');
+        }
+        return res.json();
       })
+      .then(() => {
+        this.context.fetchData();
 
-      setTimeout(() => {
+        //'added to cart' popup
         this.setState({
-          popup: false
-        })
-      }, 500)
-    })
-    .catch((error) => {
-      this.setState({
-        error: error.message,
+          popup: true,
+        });
+
+        setTimeout(() => {
+          this.setState({
+            popup: false,
+          });
+        }, 500);
+      })
+      .catch((error) => {
+        this.setState({
+          error: error.message,
+        });
       });
-    });
   };
 
   render() {
     const { productname, price, img, productinfo } = this.state;
 
     return (
-      <div>      
+      <div>
         <header className='banner'>
           <h1>{productname}</h1>
         </header>
-        <button className='back-btn button' onClick={() => this.props.history.goBack()}>Back</button>
-        
+        <button
+          className='back-btn button'
+          onClick={() => this.props.history.goBack()}
+        >
+          Back
+        </button>
+
         <section>
-        <img src={img} alt={`${productname}`} className='product-preview-img' />
+          <img
+            src={img}
+            alt={`${productname}`}
+            className='product-preview-img'
+          />
           <p>${price}</p>
           {this.state.category === 'tshirts' && (
             <form
@@ -121,7 +138,10 @@ class ProductPage extends Component {
               </select>
             </form>
           )}
-          <button className='button'onClick={(event) => this.handleAddToCart()}>
+          <button
+            className='button'
+            onClick={(event) => this.handleAddToCart()}
+          >
             Add to Cart
           </button>
           <Popup trigger={this.state.popup}>
