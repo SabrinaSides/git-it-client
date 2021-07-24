@@ -125,14 +125,14 @@ class ProductPage extends Component {
             Add to Cart
           </button>
           <Popup trigger={this.state.popup}>
-            <h3>Item Added To Cart</h3>
+            <p>Item Added To Cart</p>
           </Popup>
         </section>
 
         <section>
-          <p>
+          <h3>
             <strong>Product Info:</strong>
-          </p>
+          </h3>
           <p>{productinfo}</p>
         </section>
       </div>

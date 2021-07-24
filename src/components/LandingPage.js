@@ -1,44 +1,31 @@
 import React, { Component } from 'react';
+import programmer from '../images/programmer.png'
+import womanProgrammer from '../images/programmer-woman.png'
 
 class LandingPage extends Component {
   render() {
     return (
       <div>
-        <header>
+        <header className='banner'>
           <h1>Git It</h1>
-          <h2>A Shop for Coding Merch</h2>
+          <h2>A Programmer's Shopping Paradise</h2>
         </header>
         <section>
-          <header>
             <h3>Wear Your Coding Nerdiness with Pride</h3>
-          </header>
-          <p>
-            [<em>placeholder for screenshot of coding tshirt</em>]
-          </p>
-          <p>Info about how GitIt sells coding related merch</p>
+          <p>Shop for coding related merch</p>
+            <img src={programmer} alt='Programmer at desk' className='home-img' />
         </section>
         <section>
-          <header>
             <h3>Gifts for Family and Friends</h3>
-          </header>
-          <p>
-            [<em>placeholder for screenshot of of coding tshirt</em>]
-          </p>
           <p>Get the perfect gift for the programmer in your life</p>
+          <img src={womanProgrammer} alt='Programmer at desk' className='home-img' />
         </section>
         <section>
-          <header>
             <h3>Look Great Even If You Don't Leave The House</h3>
-          </header>
-          <p>
-            [<em>placeholder for screenshot of tshirt</em>]
-          </p>
-          <p>Variety of clever puns to choose from</p>
+          <p>Look great while writing great code</p>
         </section>
         <section>
-          <header>
-            <h3>Start Shopping Now</h3>
-          </header>
+            <h3>Start Shopping Now!</h3>
           <button className='button' onClick={() => this.props.history.push('/shop')}>Shop</button>
         </section>
       </div>

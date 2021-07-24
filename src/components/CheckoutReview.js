@@ -58,6 +58,7 @@ export default class Review extends React.Component {
         <Typography variant='h6' gutterBottom>
           Order summary
         </Typography>
+        <div className='shopping-cart'>
         <div className='cart-items-container'>
           {shoppingCart.map((cartItem, idx) => {
             return (
@@ -68,6 +69,7 @@ export default class Review extends React.Component {
               />
             );
           })}
+        </div>
         </div>
         <section>
           <p>Subtotal: ${this.calculateSubtotal()}</p>
