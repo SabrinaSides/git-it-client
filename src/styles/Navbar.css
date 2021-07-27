@@ -18,3 +18,8 @@
   font-size: 30px;
   font-weight: 900;
 }
+
+.shopping-cart-icon {
+  display: flex;
+  flex-direction: row;
+}

@@ -3,6 +3,7 @@ import ShoppingContext from '../ShoppingContext';
 import config from '../config';
 import Popup from './Popup';
 import '../styles/ProductPreview.css';
+import '../styles/ProductPage.css'
 
 class ProductPage extends Component {
   state = {
@@ -129,7 +130,7 @@ class ProductPage extends Component {
               onChange={(event) => this.setState({ size: event.target.value })}
             >
               <label htmlFor='size'>Size:</label>
-              <select id='size' name='size'>
+              <select id='size' name='size' className='size-input'>
                 <option value='X-Small'>XS</option>
                 <option value='Small'>S</option>
                 <option value='Medium'>M</option>

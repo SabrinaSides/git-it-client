@@ -1,31 +1,15 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
-import Grid from '@material-ui/core/Grid';
 import ShoppingContext from '../ShoppingContext';
 import '../styles/CartItems.css';
 import CartItems from './CartItems';
 
 const addresses = ['123 JavaScript St', 'Oklahoma City', 'OK', '12345', 'USA'];
 const payments = [
-  { name: 'Card type', detail: 'Visa' },
-  { name: 'Card holder', detail: 'John Smith' },
-  { name: 'Card number', detail: 'xxxx-xxxx-xxxx-1234' },
-  { name: 'Expiry date', detail: '10/2024' },
+  { name: 'Card type:', detail: 'Visa' },
+  { name: 'Card holder:', detail: 'John Smith' },
+  { name: 'Card number:', detail: 'xxxx-xxxx-xxxx-1234' },
+  { name: 'Expiration date:', detail: '10/2024' },
 ];
-
-const useStyles = makeStyles((theme) => ({
-  listItem: {
-    padding: theme.spacing(1, 0),
-  },
-  total: {
-    fontWeight: 700,
-  },
-  title: {
-    marginTop: theme.spacing(2),
-  },
-}));
-
 export default class Review extends React.Component {
   static contextType = ShoppingContext;
 
@@ -54,10 +38,10 @@ export default class Review extends React.Component {
     const { shoppingCart } = this.context;
 
     return (
-      <React.Fragment>
-        <Typography variant='h6' gutterBottom>
+      <div>
+        <h2>
           Order summary
-        </Typography>
+        </h2>
         <div className='shopping-cart'>
           <div className='cart-items-container'>
             {shoppingCart.map((cartItem, idx) => {
@@ -77,33 +61,30 @@ export default class Review extends React.Component {
           <p>Taxes: ${this.calculateSalesTax()}</p>
           <p>Total: ${this.calculateTotal()} </p>
         </section>
-        <Grid container spacing={2}>
-          <Grid item xs={12} sm={6}>
-            <Typography variant='h6' gutterBottom className={useStyles.title}>
-              Shipping
-            </Typography>
-            <Typography gutterBottom>John Smith</Typography>
-            <Typography gutterBottom>{addresses.join(', ')}</Typography>
-          </Grid>
-          <Grid item container direction='column' xs={12} sm={6}>
-            <Typography variant='h6' gutterBottom className={useStyles.title}>
-              Payment details
-            </Typography>
-            <Grid container>
+        <div>
+          <div>
+            <h3>
+              <u>Shipping</u>
+            </h3>
+            <p>John Smith</p>
+            <p>{addresses.join(', ')}</p>
+          </div>
+          <div>
+            <h3>
+              <u>Payment details</u>
+            </h3>
+            <div>
               {payments.map((payment) => (
-                <React.Fragment key={payment.name}>
-                  <Grid item xs={6}>
-                    <Typography gutterBottom>{payment.name}</Typography>
-                  </Grid>
-                  <Grid item xs={6}>
-                    <Typography gutterBottom>{payment.detail}</Typography>
-                  </Grid>
-                </React.Fragment>
+                <div key={payment.name}>
+                  <div>
+                    <p><strong>{payment.name}</strong>{'  '}{payment.detail}</p>
+                  </div>
+                </div>
               ))}
-            </Grid>
-          </Grid>
-        </Grid>
-      </React.Fragment>
+            </div>
+          </div>
+        </div>
+      </div>
     );
   }
 }

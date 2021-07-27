@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import ShoppingContext from '../ShoppingContext';
-import Badge from '@material-ui/core/Badge';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import MonetizationOnIcon from '@material-ui/icons/MonetizationOn';
 import '../styles/Navbar.css';
@@ -35,10 +34,9 @@ class Navbar extends Component {
               onClick={() => this.props.history.push('/shopping-cart')}
               className='link'
             >
-              <div>
-                <Badge color='primary' badgeContent={cartCount}>
-                  <ShoppingCartIcon />
-                </Badge>
+              <div className='shopping-cart-icon'>
+              <ShoppingCartIcon />
+                <div>{cartCount}</div>          
               </div>
             </div>
           ) : (

@@ -1,62 +1,41 @@
 import React from 'react';
-import Typography from '@material-ui/core/Typography';
-import Grid from '@material-ui/core/Grid';
-import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
 
 export default function PaymentForm() {
   return (
-    <React.Fragment>
-      <Typography variant='h6' gutterBottom>
+    <div>
+      <h2>
         Payment method
-      </Typography>
-      <Grid container spacing={3}>
-        <Grid item xs={12} md={6}>
-          <TextField
+        </h2>
+      <form>
+      <label htmlFor='cardName' className='labels'>Name on Card:</label>
+          <input
             required
             id='cardName'
-            label='Name on card'
-            fullWidth
-            autoComplete='cc-name'
             value='John Smith'
+            readOnly
           />
-        </Grid>
-        <Grid item xs={12} md={6}>
-          <TextField
+<label htmlFor='cardNumber' className='labels'>Card Number:</label>
+          <input
             required
             id='cardNumber'
-            label='Card number'
-            fullWidth
-            value='1234-567-8900'
+            value='1234-5678-8900-0000'
+            readOnly
           />
-        </Grid>
-        <Grid item xs={12} md={6}>
-          <TextField
+<label htmlFor='expDate' className='labels'>Expiration Date:</label>
+          <input
             required
             id='expDate'
-            label='Expiry date'
-            fullWidth
             value='10/24'
+            readOnly
           />
-        </Grid>
-        <Grid item xs={12} md={6}>
-          <TextField
+          <label htmlFor='cvv' className='labels'>CVV:</label>
+          <input
             required
             id='cvv'
-            label='CVV'
-            helperText='Last three digits on signature strip'
-            fullWidth
             value='123'
+            readOnly
           />
-        </Grid>
-        <Grid item xs={12}>
-          <FormControlLabel
-            control={<Checkbox color='secondary' name='saveCard' value='yes' />}
-            label='Remember credit card details for next time'
-          />
-        </Grid>
-      </Grid>
-    </React.Fragment>
+      </form>
+    </div>
   );
 }

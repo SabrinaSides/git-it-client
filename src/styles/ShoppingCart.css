@@ -14,7 +14,7 @@
 @media (min-width: 768px) {
   .cart-items-container {
     margin: 2% 10%;
-    max-width: 60%;
+    max-width: 90%;
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
